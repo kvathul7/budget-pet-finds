@@ -24,7 +24,7 @@ const products = [
     price: "₹199",
     description: "Stainless steel feeding bowl for pets.",
     image: "images/pet-bowl.jpg",
-    link: "PASTE_MEESHO_COMMISSION_LINK_HERE"
+    link: "https://affiliate.meesho.com/collection/NzgzMTAyMjo6Ojo6OmF1dG9kbQ=="
   },
 
   {
