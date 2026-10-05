@@ -16,7 +16,7 @@ const products = [
     price: "₹148",
     description: "Strong and durable leash for everyday walks.",
     image: "images/dog-leash.jpg",
-    link: "PASTE_MEESHO_COMMISSION_LINK_HERE"
+    link: "https://affiliate.meesho.com/collection/NzgzNTMyNjo6Ojo6OmF1dG9kbQ=="
   },
 
   {
