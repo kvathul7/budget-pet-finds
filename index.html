@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Budget Pet Finds</title>
+<meta name="description" content="Affordable & useful products for your pets.">
+<meta name="theme-color" content="#e64a19">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>%F0%9F%90%BE</text></svg>">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <header class="site-header">
+    <h1>🐾 BUDGET PET FINDS</h1>
+    <p class="tagline">Affordable &amp; useful products for your pets 🛒</p>
+  </header>
+
+  <main class="container">
+    <h2 class="section-title">🔥 LATEST PRODUCTS</h2>
+
+    <!-- Products are drawn here automatically from products.js -->
+    <div id="product-grid" class="grid"></div>
+
+    <p id="empty-note" class="empty-note" hidden>
+      No products yet — add some in <strong>products.js</strong>.
+    </p>
+  </main>
+
+  <footer class="site-footer">
+    <p>
+      Some links on this page are Meesho creator/affiliate links.
+      I may earn a commission from eligible purchases.
+    </p>
+  </footer>
+
+  <!-- 1. Your product list -->
+  <script src="products.js"></script>
+
+  <!-- 2. The code that turns that list into cards. You should not need
+          to touch anything below this line. -->
+  <script>
+  (function () {
+    var grid = document.getElementById('product-grid');
+    var PLACEHOLDER = 'PASTE_MEESHO_COMMISSION_LINK_HERE';
+
+    if (typeof products === 'undefined' || !products.length) {
+      document.getElementById('empty-note').hidden = false;
+      return;
+    }
+
+    products.forEach(function (p) {
+      var card = document.createElement('article');
+      card.className = 'card';
+
+      // ---- picture -------------------------------------------------
+      var thumb = document.createElement('div');
+      thumb.className = 'thumb';
+
+      var img = document.createElement('img');
+      img.src = p.image;
+      img.alt = p.name;
+      img.loading = 'lazy';
+      img.decoding = 'async';
+      // If the image file is missing, show a paw instead of a broken icon.
+      img.onerror = function () {
+        thumb.classList.add('thumb--empty');
+        img.remove();
+      };
+      thumb.appendChild(img);
+      card.appendChild(thumb);
+
+      // ---- text ----------------------------------------------------
+      var body = document.createElement('div');
+      body.className = 'card-body';
+
+      var name = document.createElement('h3');
+      name.className = 'name';
+      name.textContent = p.name;
+      body.appendChild(name);
+
+      var price = document.createElement('p');
+      price.className = 'price';
+      price.textContent = p.price;
+      body.appendChild(price);
+
+      var desc = document.createElement('p');
+      desc.className = 'desc';
+      desc.textContent = p.description;
+      body.appendChild(desc);
+
+      // ---- button --------------------------------------------------
+      // Until a real Meesho link is pasted in, the button stays inactive
+      // so visitors are never sent to a dead page.
+      var button;
+      if (p.link && p.link !== PLACEHOLDER) {
+        button = document.createElement('a');
+        button.className = 'btn';
+        button.href = p.link;
+        button.target = '_blank';
+        button.rel = 'noopener noreferrer';
+        button.textContent = '🛒 SHOP NOW';
+      } else {
+        button = document.createElement('span');
+        button.className = 'btn btn--soon';
+        button.textContent = '🔗 LINK COMING SOON';
+      }
+      body.appendChild(button);
+
+      card.appendChild(body);
+      grid.appendChild(card);
+    });
+  })();
+  </script>
+
+</body>
+</html>
