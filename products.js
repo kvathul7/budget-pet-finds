@@ -20,7 +20,7 @@ const products = [
 
   { name: "Dog Toy",            price: "₹129", link: "PASTE_MEESHO_COMMISSION_LINK_HERE" },
 
-  { name: "Dog Grooming Brush", price: "₹149", link: "PASTE_MEESHO_COMMISSION_LINK_HERE" },
+  { name: "Dog Grooming Brush", price: "₹149", link: "https://affiliate.meesho.com/collection/Nzg1MTA5NTo6Ojo6OmF1dG9kbQ==" },
 
   { name: "Dog Collar",         price: "₹179", link: "PASTE_MEESHO_COMMISSION_LINK_HERE" }
 
