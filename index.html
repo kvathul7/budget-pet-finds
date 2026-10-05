@@ -32,47 +32,59 @@
     </p>
   </footer>
 
-  <!-- 1. Your product list -->
-  <script src="products.js"></script>
-
-  <!-- 2. Turns that list into tappable links.
-          You should not need to touch anything below this line. -->
+  <!-- 1 + 2. Loads your product list, then turns it into tappable links.
+          products.js is requested with a "?v=" time stamp so phones and
+          browsers always fetch the newest list instead of re-showing a saved
+          older copy. You should not need to touch anything below this line. -->
   <script>
   (function () {
-    var box = document.getElementById('links');
     var PLACEHOLDER = 'PASTE_MEESHO_COMMISSION_LINK_HERE';
 
-    if (typeof products === 'undefined' || !products.length) {
+    var tag = document.createElement('script');
+    tag.src = 'products.js?v=' + Date.now();
+    tag.onload = render;
+    tag.onerror = showEmptyNote;
+    document.body.appendChild(tag);
+
+    function showEmptyNote() {
       document.getElementById('empty-note').hidden = false;
-      return;
     }
 
-    products.forEach(function (p) {
-      var ready = p.link && p.link !== PLACEHOLDER;
+    function render() {
+      var box = document.getElementById('links');
 
-      // A real link when one is set, otherwise a dead row that cannot be
-      // tapped -- so the page never sends anyone to a broken page.
-      var row = document.createElement(ready ? 'a' : 'div');
-      row.className = 'link' + (ready ? '' : ' link--soon');
-
-      if (ready) {
-        row.href = p.link;
-        row.target = '_blank';
-        row.rel = 'noopener noreferrer';
+      if (typeof products === 'undefined' || !products.length) {
+        showEmptyNote();
+        return;
       }
 
-      var name = document.createElement('span');
-      name.className = 'link-name';
-      name.textContent = p.name;
-      row.appendChild(name);
+      products.forEach(function (p) {
+        var ready = p.link && p.link !== PLACEHOLDER;
 
-      var tail = document.createElement('span');
-      tail.className = 'link-tail';
-      tail.textContent = ready ? (p.price || '') : 'coming soon';
-      row.appendChild(tail);
+        // A real link when one is set, otherwise a dead row that cannot be
+        // tapped -- so the page never sends anyone to a broken page.
+        var row = document.createElement(ready ? 'a' : 'div');
+        row.className = 'link' + (ready ? '' : ' link--soon');
 
-      box.appendChild(row);
-    });
+        if (ready) {
+          row.href = p.link;
+          row.target = '_blank';
+          row.rel = 'noopener noreferrer';
+        }
+
+        var name = document.createElement('span');
+        name.className = 'link-name';
+        name.textContent = p.name;
+        row.appendChild(name);
+
+        var tail = document.createElement('span');
+        tail.className = 'link-tail';
+        tail.textContent = ready ? (p.price || '') : 'coming soon';
+        row.appendChild(tail);
+
+        box.appendChild(row);
+      });
+    }
   })();
   </script>
 
