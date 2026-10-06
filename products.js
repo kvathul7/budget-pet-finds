@@ -14,21 +14,23 @@
 
 const products = [
 
-  { name: "Dog Leash",          price: "₹148", link: "https://affiliate.meesho.com/collection/NzgzNTMyNjo6Ojo6OmF1dG9kbQ==" },
+  { name: "Dog Leash",             price: "₹148", link: "https://affiliate.meesho.com/collection/NzgzNTMyNjo6Ojo6OmF1dG9kbQ==" },
 
-  { name: "Pet Feeding Bowl",   price: "₹199", link: "https://affiliate.meesho.com/collection/NzgzMTAyMjo6Ojo6OmF1dG9kbQ==" },
+  { name: "Pet Feeding Bowl",      price: "₹199", link: "https://affiliate.meesho.com/collection/NzgzMTAyMjo6Ojo6OmF1dG9kbQ==" },
 
-  { name: "Dog Toy",            price: "₹129", link: "PASTE_MEESHO_COMMISSION_LINK_HERE" },
+  { name: "Dog Toy",               price: "₹129", link: "PASTE_MEESHO_COMMISSION_LINK_HERE" },
 
-  { name: "Dog Grooming Brush", price: "₹149", link: "https://affiliate.meesho.com/collection/Nzg1MTA5NTo6Ojo6OmF1dG9kbQ==" },
+  { name: "Dog Grooming Brush",    price: "₹149", link: "https://affiliate.meesho.com/collection/Nzg1MTA5NTo6Ojo6OmF1dG9kbQ==" },
 
-  { name: "Dog Collar",         price: "₹179", link: "PASTE_MEESHO_COMMISSION_LINK_HERE" }
+  { name: "Dog Collar",            price: "₹179", link: "PASTE_MEESHO_COMMISSION_LINK_HERE" },
+
+  { name: "Harness + Leash Combo", price: "₹249", link: "https://affiliate.meesho.com/collection/NzkwNDI1NDo6Ojo6OmF1dG9kbQ==" }
 
   /* ---- COPY THIS LINE TO ADD A NEW PRODUCT ----------------------------
      Put a comma after the line above first, then paste:
 
   ,
-  { name: "New Product",        price: "₹299", link: "PASTE_MEESHO_COMMISSION_LINK_HERE" }
+  { name: "New Product", price: "₹299", link: "PASTE_MEESHO_COMMISSION_LINK_HERE" }
 
   --------------------------------------------------------------------- */
 
